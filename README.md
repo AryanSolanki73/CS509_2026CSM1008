@@ -1,17 +1,17 @@
-# CS509 Assignment
+# CS509 Assignments Repository
 
 Name : Aryan Solanki
-
 Entry number : 2026CSM1008
 
-## Assignment 01
+## Assignment 1
+## Task 01
 
-Matrix Multiplication 
+Simple Matrix Multiplication 
 
-## Assignment 03
+## Task 02 
 
 Blocking Matrix Multiplication 
 
-## Assignment 03
+## Task 03
 
-CSR Implementation
+Compressed Sparse Row (CSR) Algorithm
