@@ -6,69 +6,91 @@ void matrixMenu(){
     int choice;
 
     cout<<"\n=========== Matrix Multiplication File ==========\n";
-    cout<<"1. Compile the code\n";
-    cout<<"2. Run Test_01\n";
-    cout<<"3. Run Test_02\n";
-    cout<<"4. Run Test_03\n";
-    cout<<"5. Run Test_04\n";
-    // cout<<"6. Run All Tests\n";
-    cout<<"Enter Choice : ";
+    cout<<"\n1. Compile the code\n";
+    cout<<"2. Run Test_01_2×2\n";
+    cout<<"3. Run Test_02_10×10\n";
+    cout<<"4. Run Task_03_100×100\n";
+    cout<<"5. Run Test_04_250×250\n";
+    cout<<"6. Run Test_05_500×500\n";
+    cout<<"7. Run All Tests\n";
+    cout<<"\nEnter Choice : ";
     cin >> choice;
 
     switch(choice){
         case 1:
         {
-            int status = system("g++ Assignment_01/driver/main.cpp Assignment_01/src/matrix.cpp -o Assignment_01/driver/matrix");
+            int status = system("g++ Assignment_01/Task_01/driver/main.cpp Assignment_01/Task_01/src/matrix.cpp -o Assignment_01/Task_01/driver/matrix");
             
             if(status == 0){
-                cout << "Compilation successful...";
+                cout << "\nCompilation successful\n";
             }else{
-                cout << "Compilation Unsuccessful...";
+                cout << "\nCompilation Unsuccessful\n";
             }
             break;
         }
 
         case 2:{
-            int status = system("Assignment_01/driver/matrix Assignment_01/tests/Test_01.txt Assignment_01/outputs/Output_01.txt");
+            int status = system("Assignment_01/Task_01/driver/matrix Assignment_01/Task_01/tests/Test_01.txt Assignment_01/Task_01/outputs/Output_01.txt");
             if(status == 0){
-                cout << "Output 1 Generated...";
+                cout << "\nOutput Generated\n";
             }else{
-                cout << "Output not generated...";
+                cout << "\nOutput not generated\n";
             }
             break;
         }
 
         case 3:{
-            int status = system("Assignment_01\\driver\\matrix.exe Assignment_01\\tests\\Test_02.txt Assignment_01\\outputs\\Output_02.txt");
+            int status = system("Assignment_01/Task_01/driver/matrix Assignment_01/Task_01/tests/Test_02.txt Assignment_01/Task_01/outputs/Output_02.txt");
             if(status == 0){
-                cout << "Output 2 Generated...";
+                cout << "\nOutput Generated\n";
             }else{
-                cout << "Output not generated...";
+                cout << "\nOutput not generated\n";
             }
             break;
         }
 
         case 4:{
-            int status = system("Assignment_01\\driver\\matrix.exe Assignment_01\\tests\\Test_03.txt Assignment_01\\outputs\\Output_03.txt");
+            int status = system("Assignment_01/Task_01/driver/matrix Assignment_01/Task_01/tests/Task_03.txt Assignment_01/Task_01/outputs/Output_03.txt");
             if(status == 0){
-                cout << "Output 3 Generated...";
+                cout << "\nOutput Generated\n";
             }else{
-                cout << "Output not generated...";
+                cout << "\nOutput not generated\n";
             }
             break;
         }
 
         case 5:
         {
-            int status = system("Assignment_01\\driver\\matrix.exe Assignment_01\\tests\\Test_04.txt Assignment_01\\outputs\\Output_04.txt");
+            int status = system("Assignment_01/Task_01/driver/matrix Assignment_01/Task_01/tests/Test_04.txt Assignment_01/Task_01/outputs/Output_04.txt");
             if(status == 0){
-                cout << "Output 4 Generated...";
+                cout << "\nOutput Generated\n";
             }else{
-                cout << "Output not generated...";
+                cout << "\nOutput not generated\n";
             }
             break;
         }
-        
+     
+        case 6:
+        {
+            int status = system("Assignment_01/Task_01/driver/matrix Assignment_01/Task_01/tests/Test_05.txt Assignment_01/Task_01/outputs/Output_05.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 7:
+        {
+            system("Assignment_01/Task_01/driver/matrix Assignment_01/Task_01/tests/Test_01.txt Assignment_01/Task_01/outputs/Output_01.txt");
+            system("Assignment_01/Task_01/driver/matrix Assignment_01/Task_01/tests/Test_02.txt Assignment_01/Task_01/outputs/Output_02.txt");
+            system("Assignment_01/Task_01/driver/matrix Assignment_01/Task_01/tests/Task_03.txt Assignment_01/Task_01/outputs/Output_03.txt");
+            system("Assignment_01/Task_01/driver/matrix Assignment_01/Task_01/tests/Test_04.txt Assignment_01/Task_01/outputs/Output_04.txt");
+            system("Assignment_01/Task_01/driver/matrix Assignment_01/Task_01/tests/Test_05.txt Assignment_01/Task_01/outputs/Output_05.txt");
+            cout<<"\nAll Output Generated.\n";
+            break;
+        }
         default: cout<<"Invalid Choice...";
     }
 }
@@ -76,72 +98,90 @@ void matrixMenu(){
 void blockingMatrixMenu(){
     int choice;
     cout<<"\n=========== Blocking Matrix Multiplication File ==========\n";
-    cout<<"1. Compile the code\n";
-    cout<<"2. Run Test_01\n";
-    cout<<"3. Run Test_02\n";
-    cout<<"4. Run Test_03\n";
-    cout<<"5. Run Test_04\n";
-    // cout<<"6. Run All Tests\n";
-    cout<<"Enter choice : ";
+    cout<<"\n1. Compile the code\n";
+    cout<<"2. Run Test_01_4×4\n";
+    cout<<"3. Run Test_02_10×10\n";
+    cout<<"4. Run Task_03_100×100\n";
+    cout<<"5. Run Test_04_250×250\n";
+    cout<<"6. Run Test_05_500×500\n";
+    cout<<"7. Run All Tests\n";
+    cout<<"\nEnter choice : ";
     cin>>choice;
 
     switch(choice){
         case 1:
         {
-            int status = system("g++ Assignment_02/driver/blockingMain.cpp Assignment_02/src/blockMatrix.cpp -o Assignment_02/driver/block");
+            int status = system("g++ Assignment_01/Task_02/driver/blockingMain.cpp Assignment_01/Task_02/src/blockMatrix.cpp -o Assignment_01/Task_02/driver/block");
             if(status == 0){
-                cout << "Compilation successful...";
+                cout << "\nCompilation successful\n";
             }else{
-                cout << "Compilation Unsuccessful...";
+                cout << "\nCompilation Unsuccessful\n";
             }
             break;
         }
         
         case 2:
         {
-            int status = system("Assignment_02/driver/block Assignment_02/tests/Test_01.txt Assignment_02/outputs/Output_01.txt");
+            int status = system("Assignment_01/Task_02/driver/block Assignment_01/Task_02/tests/Test_01.txt Assignment_01/Task_02/outputs/Output_01.txt");
             if(status == 0){
-                cout << "Output 1 Generated...";
+                cout << "\nOutput Generated\n";
             }else{
-                cout << "Output not generated...";
+                cout << "\nOutput not generated\n";
             }
             break;
         }
 
         case 3:
         {
-            int status = system("Assignment_02\\driver\\block.exe Assignment_02\\tests\\Test_02.txt Assignment_02\\outputs\\Output_02.txt");
+            int status = system("Assignment_01/Task_02/driver/block Assignment_01/Task_02/tests/Test_02.txt Assignment_01/Task_02/outputs/Output_02.txt");
             if(status == 0){
-                cout << "Output 2 Generated...";
+                cout << "\nOutput Generated\n";
             }else{
-                cout << "Output not generated...";
+                cout << "\nOutput not generated\n";
             }
             break;
         }
         case 4:
         {
-            int status = system("Assignment_02\\driver\\block.exe Assignment_02\\tests\\Test_03.txt Assignment_01\\outputs\\Output_03.txt");
+            int status = system("Assignment_01/Task_02/driver/block Assignment_01/Task_02/tests/Task_03.txt Assignment_01/Task_02/outputs/Output_03.txt");
             if(status == 0){
-                cout << "Output 3 Generated...";
+                cout << "\nOutput Generated\n";
             }else{
-                cout << "Output not generated...";
+                cout << "\nOutput not generated\n";
             }
             break;
         }
 
         case 5:{
-            int status = system("Assignment_02\\driver\\block.exe Assignment_02\\tests\\Test_04.txt Assignment_01\\outputs\\Output_04.txt");
+            int status = system("Assignment_01/Task_02/driver/block Assignment_01/Task_02/tests/Test_04.txt Assignment_01/Task_02/outputs/Output_04.txt");
             if(status == 0){
-                cout << "Output 3 Generated...";
+                cout << "\nOutput Generated\n";
             }else{
-                cout << "Output not generated...";
+                cout << "\nOutput not generated\n";
             }
             break;
         }
         
-//         // case 6:
-//         //     system("Assignment_02\\driver\\matrix.exe ALL");
-//         //     break;
+        case 6:{
+            int status = system("Assignment_01/Task_02/driver/block Assignment_02/tests/Test_05.txt Assignment_01/Task_02/outputs/Output_05.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 7:
+        {
+            system("g++ Assignment_01/Task_02/driver/blockingMain.cpp Assignment_01/Task_02/src/blockMatrix.cpp -o Assignment_01/Task_02/driver/block");
+            system("Assignment_01/Task_02/driver/block Assignment_01/Task_02/tests/Test_02.txt Assignment_01/Task_02/outputs/Output_02.txt");
+            system("Assignment_01/Task_02/driver/block Assignment_01/Task_02/tests/Task_03.txt Assignment_01/Task_02/outputs/Output_03.txt");
+            system("Assignment_01/Task_02/driver/block Assignment_01/Task_02/tests/Test_04.txt Assignment_01/Task_02/outputs/Output_04.txt");
+            system("Assignment_01/Task_02/driver/block Assignment_01/Task_02/tests/Test_05.txt Assignment_01/Task_02/outputs/Output_05.txt");
+            cout<<"\nAll Outputs Generated successfully.\n";
+            break;
+        }
         
         default:
             cout<<"Invalid Choice...";
@@ -151,70 +191,88 @@ void blockingMatrixMenu(){
 void csrMenu(){
     int choice;
     cout<<"\n=========== CSR File ==========\n";
-    cout<<"1. Compile the code\n";
+    cout<<"\n1. Compile the code\n";
     cout<<"2. Run Test_01\n";
     cout<<"3. Run Test_02\n";
-    cout<<"4. Run Test_03\n";
+    cout<<"4. Run Task_03\n";
     cout<<"5. Run Test_04\n";
-    // cout<<"6. Run All Tests\n";
-    cout<<"Enter choice : ";
+    cout<<"6. Run Test_05\n";
+    cout<<"7. Run all Testcases\n";
+    cout<<"\nEnter choice : ";
     cin>>choice;
 
     switch(choice){
         case 1:
         {
-            int status = system("g++ Assignment_03/driver/csrGraph.cpp Assignment_03/src/CSR.cpp -o Assignment_03/driver/csr");
+            int status = system("g++ Assignment_01/Task_03/driver/csrGraph.cpp Assignment_01/Task_03/src/CSR.cpp -o Assignment_01/Task_03/driver/csr");
             if(status == 0){
-                cout << "Compilation successful...";
+                cout << "\nCompilation successful\n";
             }else{
-                cout << "Compilation Unsuccessful...";
+                cout << "\nCompilation Unsuccessful\n";
             }
             break;
         }
         
         case 2:{
-            int status = system("Assignment_03/driver/csr Assignment_03/tests/Test_01.txt Assignment_03/outputs/Output_01.txt");
+            int status = system("Assignment_01/Task_03/driver/csr Assignment_01/Task_03/tests/Test_01.txt Assignment_01/Task_03/outputs/Output_01.txt");
             if(status == 0){
-                cout << "Output 1 Generated...";
+                cout << "\nOutput Generated\n";
             }else{
-                cout << "Output not generated...";
+                cout << "\nOutput not generated\n";
             }
             break;
         }
 
         case 3:{
-            int status = system("Assignment_03\\driver\\csr.exe Assignment_03\\tests\\Test_02.txt Assignment_03\\outputs\\Output_02.txt");
+            int status = system("Assignment_01/Task_03/driver/csr Assignment_01/Task_03/tests/Test_02.txt Assignment_01/Task_03/outputs/Output_02.txt");
             if(status == 0){
-                cout << "Output 2 Generated...";
+                cout << "\nOutput Generated\n";
             }else{
-                cout << "Output not generated...";
+                cout << "\nOutput not generated\n";
             }
             break;
         }
 
         case 4:{
-            int status = system("Assignment_03\\driver\\csr.exe Assignment_03\\tests\\Test_03.txt Assignment_03\\outputs\\Output_03.txt");
+            int status = system("Assignment_01/Task_03/driver/csr Assignment_01/Task_03/tests/Task_03.txt Assignment_01/Task_03/outputs/Output_03.txt");
             if(status == 0){
-                cout << "Output 3 Generated...";
+                cout << "\nOutput Generated\n";
             }else{
-                cout << "Output not generated...";
+                cout << "\nOutput not generated\n";
             }
             break;
         }
 
         case 5:{
-            int status = system("Assignment_03\\driver\\csr.exe Assignment_03\\tests\\Test_04.txt Assignment_03\\outputs\\Output_04.txt");
+            int status = system("Assignment_01/Task_03/driver/csr Assignment_01/Task_03/tests/Test_04.txt Assignment_01/Task_03/outputs/Output_04.txt");
             if(status == 0){
-                cout << "Output 4 Generated...";
+                cout << "\nOutput Generated\n";
             }else{
-                cout << "Output not generated...";
+                cout << "\nOutput not generated\n";
             }
             break;
         }
         
-        // case 6:
-        //     system("Assignment_03\\driver\\matrix.exe ALL");
-        //     break;
+        case 6:{
+            int status = system("Assignment_01/Task_03/driver/csr Assignment_01/Task_03/tests/Test_05.txt Assignment_01/Task_03/outputs/Output_05.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 7:
+        {
+            system("Assignment_01/Task_03/driver/csr Assignment_01/Task_03/tests/Test_01.txt Assignment_01/Task_03/outputs/Output_01.txt");
+            system("Assignment_01/Task_03/driver/csr Assignment_01/Task_03/tests/Test_02.txt Assignment_01/Task_03/outputs/Output_02.txt");
+            system("Assignment_01/Task_03/driver/csr Assignment_01/Task_03/tests/Task_03.txt Assignment_01/Task_03/outputs/Output_03.txt");
+            system("Assignment_01/Task_03/driver/csr Assignment_01/Task_03/tests/Test_04.txt Assignment_01/Task_03/outputs/Output_04.txt");
+            system("Assignment_01/Task_03/driver/csr Assignment_01/Task_03/tests/Test_05.txt Assignment_01/Task_03/outputs/Output_05.txt");
+            cout<<"\nAll Output Generated.\n";
+            break;
+        }
         
         default:
             cout<<"Invalid Choice...";
@@ -229,9 +287,9 @@ int main(){
         cout << "        CS509 Lab Wrapper\n";
         cout << "==============================\n";
 
-        cout<<"1. Assignment_01 : Matrix Multiplication\n";
-        cout<<"2. Assignment_02 : Blocking Matrix Multiplication\n";
-        cout<<"3. Assignment_03 : CSR\n";
+        cout<<"\n1. Task_01 : Matrix Multiplication\n";
+        cout<<"2. Task_02 : Blocking Matrix Multiplication\n";
+        cout<<"3. Task_03 : CSR\n";
         cout<<"4. Exit\n";
 
         cout<<"\nEnter choice : ";
@@ -252,11 +310,11 @@ int main(){
                 break;
 
             case 4:
-                cout<<"Exiting code...\n";
+                cout<<"\nExiting code...\n";
                 return 0;
             
             default:
-                cout<<"Invalid choice\n";
+                cout<<"\nInvalid choice\n";
         }
     }
     return 0;

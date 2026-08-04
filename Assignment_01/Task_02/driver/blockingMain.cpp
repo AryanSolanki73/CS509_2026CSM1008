@@ -19,6 +19,9 @@ int main(int argc, char* argv[]){
         cout<<"Not able to open the file...";
     }   
 
+    int blockSize;
+    fin>>blockSize;
+
     int r1, c1;
     fin >> r1 >> c1;
 
@@ -45,7 +48,7 @@ int main(int argc, char* argv[]){
 
     auto start = high_resolution_clock::now();
 
-    vector<vector<int>> C = blockMatrixMultiply(A, B, 2);
+    vector<vector<int>> C = blockMatrixMultiply(A, B, blockSize);
 
     auto stop = high_resolution_clock::now();
 

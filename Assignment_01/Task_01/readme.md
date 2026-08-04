@@ -2,7 +2,7 @@
 
 ## Problem
 
-Implement multiplication of two 3*3 matrices using c++
+Implement multiplication of two matrices using c++
 
 ## Compile
 
