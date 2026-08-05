@@ -1,7 +1,8 @@
  Vertices : 5
  Edges : 6
 
+
+
+Execution Time : 0.002982 ms
 Row Pointer : 0 2 4 5 6 6 
 Column Index : 1 2 3 4 3 4 
-
-Execution Time : 0.003276 ms
