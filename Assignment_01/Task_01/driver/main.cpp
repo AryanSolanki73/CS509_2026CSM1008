@@ -54,6 +54,8 @@ int main(int argc, char* argv[]){
 
     double timeTaken = duration<double, milli>(stop - start).count();
 
+    fout<<"Execution Time : "<< timeTaken <<" ms\n";
+
     fout<<"Result Matrix : \n";
 
     for(auto &row : C){
@@ -63,7 +65,6 @@ int main(int argc, char* argv[]){
         fout<<"\n";
     }
 
-    fout<<"Execution Time : "<< timeTaken <<" ms\n";
     fin.close();
     fout.close();
     return 0;

@@ -12,7 +12,8 @@ void matrixMenu(){
     cout<<"4. Run Task_03_100×100\n";
     cout<<"5. Run Test_04_250×250\n";
     cout<<"6. Run Test_05_500×500\n";
-    cout<<"7. Run All Tests\n";
+    cout<<"7. Run Test_06_1000×1000\n";
+    cout<<"8. Run All Tests\n";
     cout<<"\nEnter Choice : ";
     cin >> choice;
 
@@ -83,11 +84,23 @@ void matrixMenu(){
 
         case 7:
         {
+            int status = system("Assignment_01/Task_01/driver/matrix Assignment_01/Task_01/tests/Test_06.txt Assignment_01/Task_01/outputs/Output_06.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 8:
+        {
             system("Assignment_01/Task_01/driver/matrix Assignment_01/Task_01/tests/Test_01.txt Assignment_01/Task_01/outputs/Output_01.txt");
             system("Assignment_01/Task_01/driver/matrix Assignment_01/Task_01/tests/Test_02.txt Assignment_01/Task_01/outputs/Output_02.txt");
             system("Assignment_01/Task_01/driver/matrix Assignment_01/Task_01/tests/Test_03.txt Assignment_01/Task_01/outputs/Output_03.txt");
             system("Assignment_01/Task_01/driver/matrix Assignment_01/Task_01/tests/Test_04.txt Assignment_01/Task_01/outputs/Output_04.txt");
             system("Assignment_01/Task_01/driver/matrix Assignment_01/Task_01/tests/Test_05.txt Assignment_01/Task_01/outputs/Output_05.txt");
+            system("Assignment_01/Task_01/driver/matrix Assignment_01/Task_01/tests/Test_06.txt Assignment_01/Task_01/outputs/Output_06.txt");
             cout<<"\nAll Output Generated.\n";
             break;
         }
@@ -104,7 +117,8 @@ void blockingMatrixMenu(){
     cout<<"4. Run Task_03_100×100\n";
     cout<<"5. Run Test_04_250×250\n";
     cout<<"6. Run Test_05_500×500\n";
-    cout<<"7. Run All Tests\n";
+    cout<<"7. Run Test_06_1000×1000\n";
+    cout<<"8. Run All Tests\n";
     cout<<"\nEnter choice : ";
     cin>>choice;
 
@@ -174,12 +188,24 @@ void blockingMatrixMenu(){
 
         case 7:
         {
+            int status = system("Assignment_01/Task_02/driver/block Assignment_01/Task_02/tests/Test_06.txt Assignment_01/Task_02/outputs/Output_06.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 8:
+        {
             system("g++ Assignment_01/Task_02/driver/blockingMain.cpp Assignment_01/Task_02/src/blockMatrix.cpp -o Assignment_01/Task_02/driver/block");
             system("Assignment_01/Task_02/driver/block Assignment_01/Task_02/tests/Test_01.txt Assignment_01/Task_02/outputs/Output_01.txt");
             system("Assignment_01/Task_02/driver/block Assignment_01/Task_02/tests/Test_02.txt Assignment_01/Task_02/outputs/Output_02.txt");
             system("Assignment_01/Task_02/driver/block Assignment_01/Task_02/tests/Test_03.txt Assignment_01/Task_02/outputs/Output_03.txt");
             system("Assignment_01/Task_02/driver/block Assignment_01/Task_02/tests/Test_04.txt Assignment_01/Task_02/outputs/Output_04.txt");
             system("Assignment_01/Task_02/driver/block Assignment_01/Task_02/tests/Test_05.txt Assignment_01/Task_02/outputs/Output_05.txt");
+            system("Assignment_01/Task_02/driver/block Assignment_01/Task_02/tests/Test_06.txt Assignment_01/Task_02/outputs/Output_06.txt");
             cout<<"\nAll Outputs Generated successfully.\n";
             break;
         }
