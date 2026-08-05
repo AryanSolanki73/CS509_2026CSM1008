@@ -119,12 +119,12 @@ The wrapper provides a menu-driven interface to:
 
 | Test File | Input Size | Expected Output | Actual Output | Simple GEMM Time | Blocking GEMM Time | Block Size | Status |
 |-----------|------------|-----------------|---------------|-----------------:|-------------------:|-----------:|:------:|
-| test_01.txt | 4 × 4 | Result Matrix | Result Matrix | 0.001247 ms | 0.000424 ms | 2 | ✅ Pass |
-| test_02.txt | 10 × 10 | Result Matrix | Result Matrix | 0.001443 ms | — | 2 | ✅ Pass |
-| test_03.txt | 100 × 100 | Result Matrix | Result Matrix | — | 0.001229 ms | 32 | ✅ Pass |
-| test_04.txt | 250 × 250 | Result Matrix | Result Matrix | 0.001573 ms | — | 32 | ✅ Pass |
-| test_05.txt | 500 × 500 | Result Matrix | Result Matrix | — | 0.001930 ms | 32 | ✅ Pass |
-| test_06.txt | 1000 × 1000 | Result Matrix | Result Matrix | 45.7471 ms | 17.8189 ms | 32 | ✅ Pass |
+| test_01.txt | 4 × 4 | Result Matrix | Result Matrix | 0.067044 ms | 0.003044 ms | 2 | ✅ Pass |
+| test_02.txt | 10 × 10 | Result Matrix | Result Matrix | 0.03409 ms | 0.023559 ms | 2 | ✅ Pass |
+| test_03.txt | 100 × 100 | Result Matrix | Result Matrix | 25.2415 ms | 14.039 ms | 32 | ✅ Pass |
+| test_04.txt | 250 × 250 | Result Matrix | Result Matrix | 245.845 ms | 252.054 ms| 32 | ✅ Pass |
+| test_05.txt | 500 × 500 | Result Matrix | Result Matrix | 1834.88 ms | 2016.93 ms | 32 | ✅ Pass |
+| test_06.txt | 1000 × 1000 | Result Matrix | Result Matrix | 15888.1 ms | 15697.1 ms | 32 | ✅ Pass |
 
 > **Note:** The input matrices used for `test_02.txt` and `test_03.txt` differ between the **Simple GEMM** and **Blocking GEMM** implementations. Therefore, they are listed separately.
 
