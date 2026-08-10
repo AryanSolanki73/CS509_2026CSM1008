@@ -11,6 +11,7 @@ private:
 
     vector<int> rowPtr;
     vector<int> colIndex;
+    vector<int> weight;
 
 public:
     CSRGraph(int V);
@@ -19,6 +20,7 @@ public:
     int getEdges() const;
     const vector<int>& getRowPtr() const;
     const vector<int>& getColIndex() const;
+    const vector<int>& getWeight() const;
 
     void displayCSR() const;
 };

@@ -2,10 +2,10 @@
 
 ## Assignment 01 – General Matrix Multiplication (GEMM) & CSR Graph
 
-This assignment is a part of the **CS509 Laboratory** coursework and consists of the following individual tasks:
+This is the Assignment 01 of **CS509 Laboratory** and have the following tasks inside it:
 
 - **Task 01:** Simple General Matrix Multiplication (GEMM)
-- **Task 02:** Blocking (Tiled) General Matrix Multiplication
+- **Task 02:** Blocking (Tiled) General Matrix Multiplication (GEMM)
 - **Task 03:** Compressed Sparse Row (CSR) Graph Conversion
 
 ---
@@ -46,40 +46,15 @@ Assignment_01
 
 ## Task 01 – Simple General Matrix Multiplication (GEMM)
 
-Implements the conventional three-loop General Matrix Multiplication algorithm.
-
-### Features
-
-- Standard matrix multiplication
-- Dynamic matrix input
-- Execution time measurement
-
----
+Implementation of Simple General Matrix Multiplication
 
 ## Task 02 – Blocking (Tiled) General Matrix Multiplication
 
 Implements blocked (tiled) matrix multiplication to improve cache locality and execution performance.
 
-### Features
-
-- Loop blocking (Tiling)
-- Cache-aware implementation
-- Performance comparison with Simple GEMM
-
----
-
 ## Task 03 – Compressed Sparse Row (CSR) Graph Conversion
 
 Converts a graph stored as an adjacency list into the **Compressed Sparse Row (CSR)** representation.
-
-### Features
-
-- Sparse graph representation
-- Efficient memory usage
-- CSR preprocessing
-- CSR row pointer and column index generation
-
----
 
 # Compilation & Execution
 
@@ -125,8 +100,6 @@ The wrapper provides a menu-driven interface to:
 | test_04.txt | 250 × 250 | Result Matrix | Result Matrix | 245.845 ms | 252.054 ms| 32 | ✅ Pass |
 | test_05.txt | 500 × 500 | Result Matrix | Result Matrix | 1834.88 ms | 2016.93 ms | 32 | ✅ Pass |
 | test_06.txt | 1000 × 1000 | Result Matrix | Result Matrix | 15888.1 ms | 15697.1 ms | 32 | ✅ Pass |
-
-> **Note:** The input matrices used for `test_02.txt` and `test_03.txt` differ between the **Simple GEMM** and **Blocking GEMM** implementations. Therefore, they are listed separately.
 
 ---
 

@@ -40,6 +40,9 @@ const vector<int>& CSRGraph::getColIndex() const{
     return colIndex;
 }
 
+const vector<int>& CSRGraph::getWeight() const{
+    return weight;
+}
 void CSRGraph::displayCSR() const{
     cout<<"\nRow Pointer\n";
     for(int x : rowPtr){

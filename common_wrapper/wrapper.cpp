@@ -1,5 +1,9 @@
-#include<iostream>
-#include<cstdlib>
+#include <iostream>
+#include <filesystem>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <cstdlib>
 using namespace std;
 
 void matrixMenu(){
@@ -306,12 +310,12 @@ void csrMenu(){
     }
 }
 
-int main(){
+void runAssignment01(){
     int choice;
 
     while(true){
         cout << "\n==============================\n";
-        cout << "        CS509 Lab Wrapper\n";
+        cout << "        Assignment 01\n";
         cout << "==============================\n";
 
         cout<<"\n1. Task_01 : Matrix Multiplication\n";
@@ -337,11 +341,232 @@ int main(){
                 break;
 
             case 4:
-                cout<<"\nExiting code...\n";
-                return 0;
+                cout<<"\nExiting Assignment...\n";
+                return;
             
             default:
                 cout<<"\nInvalid choice\n";
+                break;
+        }
+    }
+}
+
+void bellmanfordMenu(){
+    int choice;
+
+    cout<<"\n=========== Bellman Ford Algorithm ==========\n";
+    cout<<"1. Run bf_10\n";
+    cout<<"2. Run bf_100\n";
+    cout<<"3. Run bf_10000\n";
+    cout<<"4. Run bf_500000\n";
+    cout<<"5. Run bf_100000\n";
+    cout<<"6. Run All Tests\n";
+    cout<<"\nEnter Choice : ";
+    cin >> choice;
+
+    switch(choice){
+        case 1:{
+            int status = system("Assignment_02/program bellman Assignment_02/Tests/bf_10.txt Assignment_02/Outputs/bf_10.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 2:{
+            int status = system("Assignment_02/program bellman Assignment_02/Tests/bf_100.txt Assignment_02/Outputs/bf_100.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 3:{
+            int status = system("Assignment_02/program bellman Assignment_02/Tests/bf_10000.txt Assignment_02/Outputs/bf_10000.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 4:{
+            int status = system("Assignment_02/program bellman Assignment_02/Tests/bf_50000.txt Assignment_02/Outputs/bf_50000.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 5:{
+            int status = system("Assignment_02/program bellman Assignment_02/Tests/bf_100000.txt Assignment_02/Outputs/bf_100000.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 6:
+        {
+            system("Assignment_02/program bellman Assignment_02/Tests/bf_10.txt Assignment_02/Outputs/bf_10.txt");
+            system("Assignment_02/program bellman Assignment_02/Tests/bf_100.txt Assignment_02/Outputs/bf_100.txt");
+            system("Assignment_02/program bellman Assignment_02/Tests/bf_10000.txt Assignment_02/Outputs/bf_10000.txt");
+            system("Assignment_02/program bellman Assignment_02/Tests/bf_50000.txt Assignment_02/Outputs/bf_50000.txt");
+            system("Assignment_02/program bellman Assignment_02/Tests/bf_100000.txt Assignment_02/Outputs/bf_100000.txt");
+            cout<<"\nAll Output Generated.\n";
+            break;
+        }
+        default: cout<<"Invalid Choice...";
+    }
+}
+
+void floydWarshallMenu(){
+    int choice;
+
+    cout<<"\n=========== Bellman Ford Algorithm ==========\n";
+    cout<<"1. Run fw_10\n";
+    cout<<"2. Run fw_100\n";
+    cout<<"3. Run fw_500\n";
+    cout<<"4. Run fw_1000\n";
+    cout<<"5. Run fw_2000\n";
+    cout<<"6. Run All Tests\n";
+    cout<<"\nEnter Choice : ";
+    cin >> choice;
+
+    switch(choice){
+        case 1:{
+            int status = system("Assignment_02/program floyd Assignment_02/Tests/fw_10.txt Assignment_02/Outputs/fw_10.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 2:{
+            int status = system("Assignment_02/program floyd Assignment_02/Tests/fw_100.txt Assignment_02/Outputs/fw_100.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 3:{
+            int status = system("Assignment_02/program floyd Assignment_02/Tests/fw_500.txt Assignment_02/Outputs/fw_500.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 4:{
+            int status = system("Assignment_02/program floyd Assignment_02/Tests/fw_1000.txt Assignment_02/Outputs/fw_1000.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 5:{
+            int status = system("Assignment_02/program floyd Assignment_02/Tests/fw_2000.txt Assignment_02/Outputs/fw_2000.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 6:
+        {
+            system("Assignment_02/program floyd Assignment_02/Tests/fw_10.txt Assignment_02/Outputs/fw_10.txt");
+            system("Assignment_02/program floyd Assignment_02/Tests/fw_100.txt Assignment_02/Outputs/fw_100.txt");
+            system("Assignment_02/program floyd Assignment_02/Tests/fw_500.txt Assignment_02/Outputs/fw_500.txt");
+            system("Assignment_02/program floyd Assignment_02/Tests/fw_1000.txt Assignment_02/Outputs/fw_1000.txt");
+            system("Assignment_02/program floyd Assignment_02/Tests/fw_2000.txt Assignment_02/Outputs/fw_2000.txt");
+            cout<<"\nAll Output Generated.\n";
+            break;
+        }
+        default: cout<<"Invalid Choice...";
+    }
+}
+
+void runAssignment02(){
+    while(true){
+        cout << "\n";
+        cout << "========================================\n";
+        cout << "            ASSIGNMENT 02\n";
+        cout << "========================================\n";
+
+        cout << "1. Bellman-Ford\n";
+        cout << "2. Floyd-Warshall\n";
+        cout << "3. Back\n";
+
+        cout << "\nChoose algorithm: ";
+
+        int choice;
+        cin >> choice;
+
+        switch(choice){
+            case 1 : 
+                bellmanfordMenu();
+                break;
+
+            case 2 : 
+                floydWarshallMenu();
+                break;
+            
+            case 3:
+                cout<<"Exiting..";
+                return;
+        }
+    }
+}
+
+int main() {
+    while (true) {
+
+        cout << "\n";
+        cout << "========================================\n";
+        cout << "          ASSIGNMENT WRAPPER\n";
+        cout << "========================================\n";
+
+        cout << "1. Assignment 01\n";
+        cout << "2. Assignment 02\n";
+        cout << "3. Exit\n";
+
+        cout << "\nChoose assignment: ";
+
+        int choice;
+        cin >> choice;
+        if (choice == 1) {
+            runAssignment01();
+        }
+        else if (choice == 2) {
+            runAssignment02();
+        }
+        else if (choice == 3) {
+            cout << "\nExiting wrapper...\n";
+            return 0;
+        }
+        else {
+            cout << "\nInvalid choice.\n";
         }
     }
     return 0;

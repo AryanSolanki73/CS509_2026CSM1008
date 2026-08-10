@@ -40,7 +40,7 @@ int main(int argc, char* argv[]){
     fout<<" Vertices : "<<graph.getVertices()<<'\n';
     fout<<" Edges : "<<graph.getEdges()<<"\n\n";
 
-    fout<<"\n\nExecution Time : "<<timeTaken<<" ms\n";
+    fout<<"Execution Time : "<<timeTaken<<" ms\n";
 
     fout<<"Row Pointer : ";
     for(int x : graph.getRowPtr()){
