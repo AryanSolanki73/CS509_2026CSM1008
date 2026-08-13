@@ -539,6 +539,194 @@ void runAssignment02(){
     }
 }
 
+void primsMenu(){
+    int choice;
+
+    cout<<"\n=========== MST Prims Algorithm ==========\n";
+    cout<<"1. Run mst_10\n";
+    cout<<"2. Run mst_100\n";
+    cout<<"3. Run mst_10000\n";
+    cout<<"4. Run mst_50000\n";
+    cout<<"5. Run mst_100000\n";
+    cout<<"6. Run All Tests\n";
+    cout<<"\nEnter Choice : ";
+    cin >> choice;
+
+    switch(choice){
+        case 1:{
+            int status = system("Assignment_03/program prims Assignment_03/Tests/mst_10.txt Assignment_03/Outputs/mstp_10.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 2:{
+            int status = system("Assignment_03/program prims Assignment_03/Tests/mst_100.txt Assignment_03/Outputs/mstp_100.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 3:{
+            int status = system("Assignment_03/program prims Assignment_03/Tests/mst_10000.txt Assignment_03/Outputs/mstp_10000.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 4:{
+            int status = system("Assignment_03/program prims Assignment_03/Tests/mst_50000.txt Assignment_03/Outputs/mstp_50000.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 5:{
+            int status = system("Assignment_03/program prims Assignment_03/Tests/mst_100000.txt Assignment_03/Outputs/mstp_100000.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 6:
+        {
+            system("Assignment_03/program prims Assignment_03/Tests/mst_10.txt Assignment_03/Outputs/mstp_10.txt");
+            system("Assignment_03/program prims Assignment_03/Tests/mst_100.txt Assignment_03/Outputs/mstp_100.txt");
+            system("Assignment_03/program prims Assignment_03/Tests/mst_10000.txt Assignment_03/Outputs/mstp_10000.txt");
+            system("Assignment_03/program prims Assignment_03/Tests/mst_50000.txt Assignment_03/Outputs/mstp_50000.txt");
+            system("Assignment_03/program prims Assignment_03/Tests/mst_10000.txt Assignment_03/Outputs/mstp_100000.txt");
+            cout<<"\nAll Output Generated.\n";
+            break;
+        }
+        default: cout<<"Invalid Choice...";
+    }
+}
+
+void kruskalMenu(){
+     int choice;
+
+    cout<<"\n=========== MST Prims Algorithm ==========\n";
+    cout<<"1. Run mst_10\n";
+    cout<<"2. Run mst_100\n";
+    cout<<"3. Run mst_10000\n";
+    cout<<"4. Run mst_50000\n";
+    cout<<"5. Run mst_100000\n";
+    cout<<"6. Run All Tests\n";
+    cout<<"\nEnter Choice : ";
+    cin >> choice;
+
+    switch(choice){
+        case 1:{
+            int status = system("Assignment_03/program prims Assignment_03/Tests/mst_10.txt Assignment_03/Outputs/mstk_10.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 2:{
+            int status = system("Assignment_03/program prims Assignment_03/Tests/mst_100.txt Assignment_03/Outputs/mstk_100.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 3:{
+            int status = system("Assignment_03/program prims Assignment_03/Tests/mst_10000.txt Assignment_03/Outputs/mstk_10000.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 4:{
+            int status = system("Assignment_03/program prims Assignment_03/Tests/mst_50000.txt Assignment_03/Outputs/mstk_50000.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 5:{
+            int status = system("Assignment_03/program prims Assignment_03/Tests/mst_100000.txt Assignment_03/Outputs/mstk_100000.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 6:
+        {
+            system("Assignment_03/program prims Assignment_03/Tests/mst_10.txt Assignment_03/Outputs/mstk_10.txt");
+            system("Assignment_03/program prims Assignment_03/Tests/mst_100.txt Assignment_03/Outputs/mstk_100.txt");
+            system("Assignment_03/program prims Assignment_03/Tests/mst_10000.txt Assignment_03/Outputs/mstk_10000.txt");
+            system("Assignment_03/program prims Assignment_03/Tests/mst_50000.txt Assignment_03/Outputs/mstk_50000.txt");
+            system("Assignment_03/program prims Assignment_03/Tests/mst_10000.txt Assignment_03/Outputs/mstk_100000.txt");
+            cout<<"\nAll Output Generated.\n";
+            break;
+        }
+        default: cout<<"Invalid Choice...";
+    }
+}
+
+void runAssignment03(){
+    while(true){
+        cout << "\n";
+        cout << "========================================\n";
+        cout << "            ASSIGNMENT 02\n";
+        cout << "========================================\n";
+
+        cout << "1. MST Prims Algorithm\n";
+        cout << "2. MST Kruskal Algorithm\n";
+        cout << "3. Back\n";
+
+        cout << "\nChoose algorithm: ";
+
+        int choice;
+        cin >> choice;
+
+        switch(choice){
+            case 1 : 
+                primsMenu();
+                break;
+
+            case 2 : 
+                kruskalMenu();
+                break;
+            
+            case 3:
+                cout<<"Exiting..";
+                return;
+        }
+    }
+}
+
 int main() {
     while (true) {
 
@@ -549,7 +737,8 @@ int main() {
 
         cout << "1. Assignment 01\n";
         cout << "2. Assignment 02\n";
-        cout << "3. Exit\n";
+        cout << "3. Assignment 03\n";
+        cout << "4. Exit\n";
 
         cout << "\nChoose assignment: ";
 
@@ -558,13 +747,20 @@ int main() {
         if (choice == 1) {
             runAssignment01();
         }
+
         else if (choice == 2) {
             runAssignment02();
         }
-        else if (choice == 3) {
+
+        else if(choice == 3){
+            runAssignment03();
+        }
+
+        else if (choice == 4) {
             cout << "\nExiting wrapper...\n";
             return 0;
         }
+
         else {
             cout << "\nInvalid choice.\n";
         }
