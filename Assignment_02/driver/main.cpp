@@ -4,18 +4,19 @@
 #include <string>    // For string in text files
 #include<chrono>     // Time Library
 
-// .h file have the main function I have to perform
+// .h file contains the function we have to perform
 #include "../src/csr.h"   
 #include "../src/bellmanFord.h"
 #include "../src/floydWarshall.h"
+
 using namespace std;
-using namespace chrono; 
+using namespace chrono;  // For execution time calculation 
 const long long INF = LLONG_MAX / 4;
 
 // Command line Arguments
 // argc = count of arguments
 // argv = actual arguments
-// argv[0] --> executable name
+// argv[0] --> executable name (program (linux), program.exe(Windows))
 int main(int argc, char* argv[]) {
     if (argc != 4) {
         cerr << "Usage:\n";
@@ -27,8 +28,11 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
+    // First command line input is algorithm name
     string algorithm = argv[1];
+    // Second - input file
     string inputFile = argv[2];
+    // Third - output file
     string outputFile = argv[3];
 
     // Open output file where to write the ans
@@ -40,7 +44,7 @@ int main(int argc, char* argv[]) {
     }
 
     // Bellman Ford Algorithm
-    // String comparision
+    // String comparision with key "bellman"
     if (algorithm == "bellman") {
 
         // Convert adjacency list -> CSR
@@ -135,7 +139,7 @@ int main(int argc, char* argv[]) {
     // argv[1] input is "floyd"
     else if (algorithm == "floyd") {
 
-        // Read and 2D matrix
+        // Read and 2D matrix where integer are long long type
         vector<vector<long long>> matrix = readMatrix(inputFile);
         // if no matrix is their
         if (matrix.empty()) {
