@@ -1,8 +1,9 @@
-#ifndef CSR_GRPAH
+#ifndef CSR_GRPAH   
 #define CSE_GRAPH
 #include<vector>
 using namespace std;
 
+// CSRGraph class (Template to convert adjacency list to CSR)
 class CSRGraph
 {
 private:

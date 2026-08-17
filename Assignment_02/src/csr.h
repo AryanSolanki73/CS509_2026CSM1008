@@ -1,9 +1,8 @@
 #ifndef CSR_H
 #define CSR_H
 
-#include <vector>
-#include <string>
-
+#include <vector> // vector library
+#include <string> // string library
 using namespace std;
 
 struct CSRGraph {

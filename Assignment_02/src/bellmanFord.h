@@ -4,6 +4,6 @@
 #include <vector>
 using namespace std;
 
-vector<long long> bellmanFord(const CSRGraph& graph, int source, bool negativeCycle);
+vector<long long> bellmanFord(const CSRGraph& graph, int source, bool& negativeCycle);
 
 #endif

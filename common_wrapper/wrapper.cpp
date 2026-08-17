@@ -620,7 +620,7 @@ void primsMenu(){
 void kruskalMenu(){
      int choice;
 
-    cout<<"\n=========== MST Prims Algorithm ==========\n";
+    cout<<"\n=========== MST Kruskal Algorithm ==========\n";
     cout<<"1. Run mst_10\n";
     cout<<"2. Run mst_100\n";
     cout<<"3. Run mst_10000\n";
@@ -632,7 +632,7 @@ void kruskalMenu(){
 
     switch(choice){
         case 1:{
-            int status = system("Assignment_03/program prims Assignment_03/Tests/mst_10.txt Assignment_03/Outputs/mstk_10.txt");
+            int status = system("Assignment_03/program kruskal Assignment_03/Tests/mst_10.txt Assignment_03/Outputs/mstk_10.txt");
             if(status == 0){
                 cout << "\nOutput Generated\n";
             }else{
@@ -642,7 +642,7 @@ void kruskalMenu(){
         }
 
         case 2:{
-            int status = system("Assignment_03/program prims Assignment_03/Tests/mst_100.txt Assignment_03/Outputs/mstk_100.txt");
+            int status = system("Assignment_03/program kruskal Assignment_03/Tests/mst_100.txt Assignment_03/Outputs/mstk_100.txt");
             if(status == 0){
                 cout << "\nOutput Generated\n";
             }else{
@@ -652,7 +652,7 @@ void kruskalMenu(){
         }
 
         case 3:{
-            int status = system("Assignment_03/program prims Assignment_03/Tests/mst_10000.txt Assignment_03/Outputs/mstk_10000.txt");
+            int status = system("Assignment_03/program kruskal Assignment_03/Tests/mst_10000.txt Assignment_03/Outputs/mstk_10000.txt");
             if(status == 0){
                 cout << "\nOutput Generated\n";
             }else{
@@ -662,7 +662,7 @@ void kruskalMenu(){
         }
 
         case 4:{
-            int status = system("Assignment_03/program prims Assignment_03/Tests/mst_50000.txt Assignment_03/Outputs/mstk_50000.txt");
+            int status = system("Assignment_03/program kruskal Assignment_03/Tests/mst_50000.txt Assignment_03/Outputs/mstk_50000.txt");
             if(status == 0){
                 cout << "\nOutput Generated\n";
             }else{
@@ -672,7 +672,7 @@ void kruskalMenu(){
         }
 
         case 5:{
-            int status = system("Assignment_03/program prims Assignment_03/Tests/mst_100000.txt Assignment_03/Outputs/mstk_100000.txt");
+            int status = system("Assignment_03/program kruskal Assignment_03/Tests/mst_100000.txt Assignment_03/Outputs/mstk_100000.txt");
             if(status == 0){
                 cout << "\nOutput Generated\n";
             }else{
@@ -683,11 +683,11 @@ void kruskalMenu(){
 
         case 6:
         {
-            system("Assignment_03/program prims Assignment_03/Tests/mst_10.txt Assignment_03/Outputs/mstk_10.txt");
-            system("Assignment_03/program prims Assignment_03/Tests/mst_100.txt Assignment_03/Outputs/mstk_100.txt");
-            system("Assignment_03/program prims Assignment_03/Tests/mst_10000.txt Assignment_03/Outputs/mstk_10000.txt");
-            system("Assignment_03/program prims Assignment_03/Tests/mst_50000.txt Assignment_03/Outputs/mstk_50000.txt");
-            system("Assignment_03/program prims Assignment_03/Tests/mst_10000.txt Assignment_03/Outputs/mstk_100000.txt");
+            system("Assignment_03/program kruskal Assignment_03/Tests/mst_10.txt Assignment_03/Outputs/mstk_10.txt");
+            system("Assignment_03/program kruskal Assignment_03/Tests/mst_100.txt Assignment_03/Outputs/mstk_100.txt");
+            system("Assignment_03/program kruskal Assignment_03/Tests/mst_10000.txt Assignment_03/Outputs/mstk_10000.txt");
+            system("Assignment_03/program kruskal Assignment_03/Tests/mst_50000.txt Assignment_03/Outputs/mstk_50000.txt");
+            system("Assignment_03/program kruskal Assignment_03/Tests/mst_10000.txt Assignment_03/Outputs/mstk_100000.txt");
             cout<<"\nAll Output Generated.\n";
             break;
         }
@@ -699,7 +699,7 @@ void runAssignment03(){
     while(true){
         cout << "\n";
         cout << "========================================\n";
-        cout << "            ASSIGNMENT 02\n";
+        cout << "            ASSIGNMENT 03\n";
         cout << "========================================\n";
 
         cout << "1. MST Prims Algorithm\n";
