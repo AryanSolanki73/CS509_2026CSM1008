@@ -3,7 +3,6 @@
 #include<vector>
 #include<chrono>
 #include"../src/CSR.h"
-
 using namespace std;
 
 int main(int argc, char* argv[]){
@@ -11,16 +10,20 @@ int main(int argc, char* argv[]){
         cout<<"Usages : CSR Inputfile Outputfile";
     }
 
+    // taking input file in fin
     ifstream fin(argv[1]);
+    // Taking output file in fout
     ofstream fout(argv[2]);
 
     if(!fin || !fout){
         cout<<"Not able to open file..\n";
     }
 
+    // Fetching vertex and edges from input file
     int V, E;
     fin >> V >> E;
 
+    // This unweighted and undirected graph
     vector<vector<int>> adj(V);
     for(int i=0; i<E; i++){
         int u, v;

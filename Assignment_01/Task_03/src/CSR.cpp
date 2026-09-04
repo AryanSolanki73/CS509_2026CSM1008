@@ -12,6 +12,7 @@ void CSRGraph::buildCSR(const vector<vector<int>>& adjList){
     rowPtr.clear();
     colIndex.clear();
 
+    // Pushing 0 inside the row_ptr
     rowPtr.push_back(0);
 
     edges = 0;
@@ -24,18 +25,22 @@ void CSRGraph::buildCSR(const vector<vector<int>>& adjList){
     }
 }
 
+// function to get total number of vertices in the graph 
 int CSRGraph::getVertices() const{
     return vertices;
 }
 
+// total number of edges in the graph
 int CSRGraph::getEdges() const{
     return edges;
 }
 
+// return vector of row_ptr
 const vector<int>& CSRGraph::getRowPtr() const{
     return rowPtr;
 }
 
+// return vector colIndex
 const vector<int>& CSRGraph::getColIndex() const{
     return colIndex;
 }
@@ -43,6 +48,7 @@ const vector<int>& CSRGraph::getColIndex() const{
 const vector<int>& CSRGraph::getWeight() const{
     return weight;
 }
+
 void CSRGraph::displayCSR() const{
     cout<<"\nRow Pointer\n";
     for(int x : rowPtr){

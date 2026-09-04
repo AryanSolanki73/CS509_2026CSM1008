@@ -3,6 +3,7 @@
 #include <vector>
 using namespace std;
 
+// function declaration to multiply Matrix A and B 
 vector<vector<int>> multiplyMatrices(
     const vector<vector<int>>& A,
     const vector<vector<int>>& B);
