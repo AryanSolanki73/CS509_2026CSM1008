@@ -8,7 +8,7 @@ using namespace std;
 // To read the Input Matrix
 vector<vector<long long>> readMatrix(const string& filename);
 
-// Main Algorithm
+// Main Algorithm floydWarshall function in floydWarshall.cpp file
 vector<vector<long long>> floydWarshall(vector<vector<long long>> matrix);
 
 #endif

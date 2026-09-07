@@ -7,8 +7,12 @@
 using namespace std;
 
 // Prim's Minimum Spanning Tree
+// inputs (CSR Graph, start vertex, total weight of MST)
 vector<MSTEdge> primMST(const CSRGraph& graph, int startVertex, long long& totalWeight) {
+    // currently total weight = 0
     totalWeight = 0;
+
+    // V is the total vertices in the graph
     int V = graph.vertices;
 
     // Validate starting vertex

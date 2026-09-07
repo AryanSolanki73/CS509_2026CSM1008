@@ -432,7 +432,7 @@ void bellmanfordMenu(){
 void floydWarshallMenu(){
     int choice;
 
-    cout<<"\n=========== Bellman Ford Algorithm ==========\n";
+    cout<<"\n=========== Floyd Warshall Algorithm ==========\n";
     cout<<"1. Run fw_10\n";
     cout<<"2. Run fw_100\n";
     cout<<"3. Run fw_500\n";
@@ -727,6 +727,194 @@ void runAssignment03(){
     }
 }
 
+void vertexColorMenu(){
+    int choice;
+
+    cout<<"\n=========== Vertex Coloring Algorithm ==========\n";
+    cout<<"1. Run color_10\n";
+    cout<<"2. Run color_100\n";
+    cout<<"3. Run color_10000\n";
+    cout<<"4. Run color_50000\n";
+    cout<<"5. Run color_100000\n";
+    cout<<"6. Run All Tests\n";
+    cout<<"\nEnter Choice : ";
+    cin >> choice;
+
+    switch(choice){
+        case 1:{
+            int status = system("Assignment_04/program color Assignment_04/Tests/color_10.txt Assignment_04/Outputs/color_10.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 2:{
+            int status = system("Assignment_04/program color Assignment_04/Tests/color_100.txt Assignment_04/Outputs/color_100.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 3:{
+            int status = system("Assignment_04/program color Assignment_04/Tests/color_10000.txt Assignment_04/Outputs/color_10000.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 4:{
+            int status = system("Assignment_04/program color Assignment_04/Tests/color_50000.txt Assignment_04/Outputs/color_50000.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 5:{
+            int status = system("Assignment_04/program color Assignment_04/Tests/color_100000.txt Assignment_04/Outputs/color_100000.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 6:
+        {
+            system("Assignment_04/program color Assignment_04/Tests/color_100.txt Assignment_04/Outputs/color_100.txt");
+            system("Assignment_04/program color Assignment_04/Tests/color_100.txt Assignment_04/Outputs/color_100.txt");
+            system("Assignment_04/program color Assignment_04/Tests/color_10000.txt Assignment_04/Outputs/color_10000.txt");
+            system("Assignment_04/program color Assignment_04/Tests/color_50000.txt Assignment_04/Outputs/color_50000.txt");
+            system("Assignment_04/program color Assignment_04/Tests/color_100000.txt Assignment_04/Outputs/color_100000.txt");
+            cout<<"\nAll Output Generated.\n";
+            break;
+        }
+        default: cout<<"Invalid Choice...";
+    }
+}
+
+void pageRankMenu(){
+    int choice;
+
+    cout<<"\n=========== Page Rank Algorithm ==========\n";
+    cout<<"1. Run pagerank_10\n";
+    cout<<"2. Run pagerank_100\n";
+    cout<<"3. Run pagerank_1000\n";
+    cout<<"4. Run pagerank_10000\n";
+    cout<<"5. Run pagerank_50000\n";
+    cout<<"6. Run All Tests\n";
+    cout<<"\nEnter Choice : ";
+    cin >> choice;
+
+    switch(choice){
+        case 1:{
+            int status = system("Assignment_04/program page Assignment_04/Tests/pagerank_10.txt Assignment_04/Outputs/pagerank_10.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 2:{
+            int status = system("Assignment_04/program page Assignment_04/Tests/pagerank_100.txt Assignment_04/Outputs/pagerank_100.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 3:{
+            int status = system("Assignment_04/program page Assignment_04/Tests/pagerank_1000.txt Assignment_04/Outputs/pagerank_1000.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 4:{
+            int status = system("Assignment_04/program page Assignment_04/Tests/pagerank_10000.txt Assignment_04/Outputs/pagerank_10000.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 5:{
+            int status = system("Assignment_04/program page Assignment_04/Tests/pagerank_50000.txt Assignment_04/Outputs/pagerank_50000.txt");
+            if(status == 0){
+                cout << "\nOutput Generated\n";
+            }else{
+                cout << "\nOutput not generated\n";
+            }
+            break;
+        }
+
+        case 6:
+        {
+            system("Assignment_04/program page Assignment_04/Tests/pagerank_10.txt Assignment_04/Outputs/pagerank_10.txt");
+            system("Assignment_04/program page Assignment_04/Tests/pagerank_100.txt Assignment_04/Outputs/pagerank_100.txt");
+            system("Assignment_04/program page Assignment_04/Tests/pagerank_1000.txt Assignment_04/Outputs/pagerank_1000.txt");
+            system("Assignment_04/program page Assignment_04/Tests/pagerank_10000.txt Assignment_04/Outputs/pagerank_10000.txt");
+            system("Assignment_04/program page Assignment_04/Tests/pagerank_50000.txt Assignment_04/Outputs/pagerank_50000.txt");
+            cout<<"\nAll Output Generated.\n";
+            break;
+        }
+        default: cout<<"Invalid Choice...";
+    }
+}
+
+void runAssignment04(){
+    while(true){
+        cout << "\n";
+        cout << "========================================\n";
+        cout << "            ASSIGNMENT 04\n";
+        cout << "========================================\n";
+
+        cout << "1. Vertex coloring (Graph Coloring)\n";
+        cout << "2. PageRank\n";
+        cout << "3. Back\n";
+
+        cout << "\nChoose algorithm: ";
+
+        int choice;
+        cin >> choice;
+
+        switch(choice){
+            case 1 : 
+                vertexColorMenu();
+                break;
+
+            case 2 : 
+                pageRankMenu();
+                break;
+            
+            case 3:
+                cout<<"Exiting..";
+                return;
+        }
+    }
+}
+
 int main() {
     while (true) {
 
@@ -738,7 +926,8 @@ int main() {
         cout << "1. Assignment 01\n";
         cout << "2. Assignment 02\n";
         cout << "3. Assignment 03\n";
-        cout << "4. Exit\n";
+        cout << "4. Assignment 04\n";
+        cout << "5. Exit";
 
         cout << "\nChoose assignment: ";
 
@@ -754,6 +943,10 @@ int main() {
 
         else if(choice == 3){
             runAssignment03();
+        }
+
+        else if(choice == 4){
+            runAssignment04();
         }
 
         else if (choice == 4) {

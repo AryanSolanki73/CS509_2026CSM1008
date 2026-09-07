@@ -5,16 +5,18 @@
 #include <string> // string library
 using namespace std;
 
+// Template for CSR Graph
 struct CSRGraph {
 
-    int vertices;
-    int edges;
+    int vertices;   // Total vertices in the grpah 
+    int edges;      // edges in the graph 
 
     vector<int> row_ptr;
     vector<int> col;
     vector<long long> weight;
 };
 
+// Fuunction declaration for CSR conversion
 CSRGraph convertToCSR(const string& filename);
 
 #endif

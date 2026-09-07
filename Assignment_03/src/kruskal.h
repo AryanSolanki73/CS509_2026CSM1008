@@ -1,7 +1,7 @@
-#ifndef KRUSKAL_H
+#ifndef KRUSKAL_H  
 #define KRUSKAL_H
 
-#include "mst.h"
+#include "mst.h"   // Giving the header file of csr.h
 #include <vector>
 using namespace std;
 

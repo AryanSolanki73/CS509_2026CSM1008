@@ -1,7 +1,7 @@
 #ifndef PRIMS_H
 #define PRIMS_H
 
-#include "mst.h"
+#include "mst.h"    // including the CSR.h files 
 #include <vector>
 using namespace std;
 

@@ -27,9 +27,9 @@ CSRGraph convertToCSR(const string& filename) {
     graph.edges = 0;
 
     // Temporary adjacency list
-    // Pair take (vertex, weight);
+    // Pair take {vertex, weight};
     // V is total number of vertices
-    vector<vector<pair<int, long long>>> adjacency(V);
+    vector<vector<pair<int, long long>>> adj(V);
 
     // Read adjacency list
     for (int i = 0; i < V; i++) {
@@ -41,41 +41,42 @@ CSRGraph convertToCSR(const string& filename) {
         
         // Another loop to extract {vertex, weight} Pair
         for (int j = 0; j < degree; j++) {
-            int neighbour;
+            int v;
             long long weight;
 
-            file >> neighbour >> weight;
-            adjacency[u].push_back({neighbour, weight});
+            file >> v >> weight;
+            adj[u].push_back({v, weight});
             // To make it undirected graph use below line
-            adjacency[neighbour].push_back({u, weight});
+            // adj[v].push_back({u, weight});
         }
     }
 
-    int totalEntries = 0;
+    int totalEdges = 0;
     for (int u = 0; u < V; u++)
     {
-        totalEntries += adjacency[u].size();
+        totalEdges += adj[u].size();
     }
-    graph.edges = totalEntries;
+    graph.edges = totalEdges;
 
     // Construct row_ptr
     graph.row_ptr.resize(V + 1);  // fixing size of row_ptr vector
     graph.row_ptr[0] = 0;         // row_ptr[0] = 0, always
     for (int u = 0; u < V; u++) {
-        graph.row_ptr[u + 1] = graph.row_ptr[u] + adjacency[u].size();
+        // 
+        graph.row_ptr[u + 1] = graph.row_ptr[u] + adj[u].size();
     }
 
     // Construct col and weight
-    graph.col.resize(totalEntries);
-    graph.weight.resize(totalEntries);
+    graph.col.resize(totalEdges);
+    graph.weight.resize(totalEdges);
 
-    int index = 0;
+    int idx = 0;
     // To iterating over vector<vector<Pair<int, int>>>
     for (int u = 0; u < V; u++) {
-        for (auto edge : adjacency[u]) {
-            graph.col[index] = edge.first;      // Pair ka first part
-            graph.weight[index] = edge.second;  // Pair ka second part
-            index++;
+        for (auto edge : adj[u]) {
+            graph.col[idx] = edge.first;      // Pair ka first part
+            graph.weight[idx] = edge.second;  // Pair ka second part
+            idx++;
         }
     }
 
