@@ -58,6 +58,7 @@ vector<vector<long long>> floydWarshall(vector<vector<long long>> matrix){
                 }
 
                 // ex. for i to j via k
+                // If there is a path between (i, j) and (j, k) then we will find the new possible distance and update the distance if it is lesser than the current distance
                 // a[i, j] = a[i, k] + a[k, j]
                 // If new path is lesser than previous one, just update it 
                 long long newDistance = matrix[i][k] + matrix[k][j];
@@ -67,5 +68,6 @@ vector<vector<long long>> floydWarshall(vector<vector<long long>> matrix){
             }
         }
     }
+    // return final output matrix
     return matrix;
 }

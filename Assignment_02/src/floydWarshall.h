@@ -9,6 +9,7 @@ using namespace std;
 vector<vector<long long>> readMatrix(const string& filename);
 
 // Main Algorithm floydWarshall function in floydWarshall.cpp file
+// This algorithm used to find the all pair shortest path, and it takes a matrix as a input
 vector<vector<long long>> floydWarshall(vector<vector<long long>> matrix);
 
 #endif

@@ -5,7 +5,7 @@
 #include <string> // string library
 using namespace std;
 
-// Template for CSR Graph
+// Template for CSR Graph for weighted undirected graph
 struct CSRGraph {
 
     int vertices;   // Total vertices in the grpah 

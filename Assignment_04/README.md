@@ -1,38 +1,61 @@
 # CS509 - PGSL — Assignment 4
 ## Vertex Coloring and PageRank (Individual Task)
 
-Language: **C++ (C++17)**
+Language: **C++**
 
 ---
 
 ## 1. Project Structure
 
-```
-Assignment_04/
-├── src/
-│   ├── csr.h            # CSR struct + adjacency-list -> CSR conversion helper
-│   ├── vertexColor.h/.cpp   # Greedy Vertex Coloring (Welsh-Powell ordering)
-│   └── pageRank.h/.cpp      # PageRank
-├── driver/
-│   └── main.cpp          # Common driver: argv-based menu, timing, I/O
-├── scripts/
-│   └── gen_tests.py       # Generates all required test-input files
-├── Tests/                 # Required test-input files (see Section 4)
-├── outputs/                # Program-generated output files for each test
-└── README.md               # This report
+
+```text
+Assignment_02
+│
+├── driver
+│   └── main.cpp
+│   
+├── src
+│   ├── csr.h
+|   ├── pageRank.h
+│   ├── pageRank.cpp
+│   ├── vertexColor.h
+|   └── vertexColor.cpp
+│
+├── Tests/
+├── Outputs/
+├── Makefile
+└── Readme.md
 ```
 
 ## 2. Build
 
 ```bash
-g++ -O2 -std=c++17 -Wall -Wextra driver/main.cpp src/vertexColor.cpp src/pageRank.cpp -o bin/assignment4
+g++ driver/main.cpp src/vertexColor.cpp src/pageRank.cpp -o program
 ```
 
-## 3. Run
+# 3. Compilation & Execution
+
+Navigate to the assignment directory.
 
 ```bash
-./bin/assignment4 color <input.txt> <output.txt>
-./bin/assignment4 page  <input.txt> <output.txt>
+cd CS509_2026CSM1008/common_wrapper
+```
+
+Compile the common wrapper.
+
+```bash
+make
+```
+
+Directory to run the wrapper (cd ..)
+```bash
+cd CS509_2026CSM1008/
+```
+
+Run the wrapper.
+
+```bash
+common_wrapper/wrapper
 ```
 
 `argv[1]` selects the algorithm (`color` or `page`), `argv[2]` is the input file,
@@ -95,29 +118,7 @@ identical rank values (`0.201960, 0.373603, 0.386937, 0.037500`) after 18
 iterations for the 4-vertex example. The PDF's sample PageRank numbers
 appear to be illustrative rather than an exact reference trace.
 
-## 6. Test-File Generation
-
-`scripts/gen_tests.py` generates all required Vertex Coloring and PageRank
-test files directly in the exact input formats from Sections 5.1 and 6.1
-(random seed fixed at 42 for reproducibility):
-
-```bash
-python3 scripts/gen_tests.py Tests
-```
-
-- **Vertex Coloring** graphs: undirected, unweighted, no self-loops, no
-  duplicate edges, target density `E ≈ 1.5V` (within the required
-  `E ≈ 2V–4V` sparsity band once vertex degree from the spanning path is
-  included), with a base spanning path added first so large graphs stay
-  weakly connected.
-- **PageRank** graphs: directed, unweighted, base directed ring (every
-  vertex has outdegree ≥ 1) plus random extra edges to reach the target
-  density; this keeps the graph weakly connected end-to-end (no vertex is
-  unreachable), and there are no dangling (outdegree-0) vertices in the
-  generated test files — the dangling-vertex handling in `pageRank.cpp`
-  was still exercised and validated separately with hand-built inputs.
-
-## 7. Input Validation (Section 12)
+## 6. Input Validation (Section 12)
 
 The driver validates input and rejects malformed files with a clear error
 message written to both the output file and stderr:
@@ -132,14 +133,6 @@ message written to both the output file and stderr:
 These paths were manually tested (self-loop, out-of-range neighbour,
 truncated adjacency line, damping `>= 1`, `MAX_ITERATIONS 0`) and all
 produced the expected rejection with no crash.
-
-## 8. Machine / Environment
-
-Results below were measured on the grading/build sandbox: Ubuntu 24.04,
-g++ 13.3.0, `-O2 -std=c++17`. For inputs where a single run completed in
-well under a millisecond, 5 runs were averaged (documented per row below);
-the two largest inputs of each algorithm (`50000`+ vertices) were run once
-since their runtime is well above measurement noise.
 
 ---
 

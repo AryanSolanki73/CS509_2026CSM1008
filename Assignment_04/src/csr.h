@@ -20,6 +20,7 @@
 #include <stdexcept>
 using namespace std;
 
+// CSR for unweighted, undirected graph
 struct CSRGraph {
     int vertices = 0;
     int edges = 0;                 // number of directed entries stored in col_idx
@@ -46,6 +47,7 @@ struct InputFormatError : public runtime_error {
 // PageRank does not forbid self-loops in the same way, so it is allowed
 // to pass true there if desired (default false is fine for both since
 // neither algorithm's spec requires self-loops).
+// inline for linker to save program from errors 
 inline CSRGraph convertToCSR(const string& inputFile, bool selfLoopsAllowed = false) {
     ifstream file(inputFile);
     if (!file.is_open()) {
@@ -54,12 +56,14 @@ inline CSRGraph convertToCSR(const string& inputFile, bool selfLoopsAllowed = fa
 
     int V, E;
     if (!(file >> V >> E)) {
+        // If V and E is not read from the input file
         throw InputFormatError("Could not read V and E header.");
     }
     if (V <= 0) {
         throw InputFormatError("Number of vertices must be positive.");
     }
 
+    // CSRGraph object
     CSRGraph graph;
     graph.vertices = V;
     graph.row_ptr.assign(V + 1, 0);
@@ -68,6 +72,7 @@ inline CSRGraph convertToCSR(const string& inputFile, bool selfLoopsAllowed = fa
 
     for (int i = 0; i < V; i++) {
         int u, degree;
+        // read u and degree successfully or give the error 
         if (!(file >> u >> degree)) {
             throw InputFormatError("Malformed adjacency line (missing vertex id / degree).");
         }
@@ -107,8 +112,6 @@ inline CSRGraph convertToCSR(const string& inputFile, bool selfLoopsAllowed = fa
             graph.col_idx.push_back(v);
         }
     }
-
     return graph;
 }
-
 #endif // CSR_H

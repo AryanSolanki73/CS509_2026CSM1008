@@ -5,6 +5,7 @@
 #include <vector>
 using namespace std;
 
+// This is a minimum cost spanning tree algorithm, sort the all edge weights and return the tree made of the smallest edge weights
 vector<MSTEdge> kruskalMST(const CSRGraph& graph, long long& totalWeight);
 
 #endif

@@ -58,7 +58,7 @@ public:
     }
 };
 
-// Kruskal's Minimum Spanning Tree
+// Kruskal's Minimum Spanning Tree logic
 vector<MSTEdge> kruskalMST(const CSRGraph& graph, long long& totalWeight) {
     totalWeight = 0;
 

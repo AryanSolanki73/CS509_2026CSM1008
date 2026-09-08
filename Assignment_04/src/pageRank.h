@@ -6,9 +6,9 @@
 using namespace std;
 
 struct PageRankResult {
-    vector<double> ranks;
-    int iterations = 0;
-    bool converged = false;
+    vector<double> ranks;  // Rank of each vetex
+    int iterations = 0;    // Total iterations used to make the ranks stable
+    bool converged = false; // whether pageRank become stable or not..
 };
 
 // PageRank on an unweighted, directed CSR graph.
@@ -21,6 +21,7 @@ struct PageRankResult {
 // Iterates using the previous iteration's values for every vertex
 // simultaneously, until the sum of absolute differences across all
 // vertices is <= tolerance, or maxIterations is reached.
+// tolerance = How small does the change need to be before I consider the answer stable?"
 PageRankResult pageRank(const CSRGraph& graph, double damping, double tolerance, int maxIterations);
 
 #endif // PAGE_RANK_H

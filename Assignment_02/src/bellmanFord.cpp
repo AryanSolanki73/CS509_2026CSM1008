@@ -24,11 +24,12 @@ const long long INF = LLONG_MAX / 4;  // A very large number considered as INF
 
     // Relax all edges V-1 times
     for (int iteration = 0; iteration < V - 1; iteration++) {
+        // intilialized every time 
         bool updated = false;
         for (int u = 0; u < V; u++) {
 
             // If u is unreachable, don't process it
-            // distance[0] = 0
+            // distance[0] = 0, current source distance already filled
             if (distance[u] == INF) {
                 continue;
             }
@@ -46,6 +47,7 @@ const long long INF = LLONG_MAX / 4;  // A very large number considered as INF
                     distance[v] = distance[u] + w;
 
                     // set updates flag as true
+                    // update each vertex distance once in the iteration of u
                     updated = true;
                 }
             }

@@ -23,8 +23,11 @@ vector<MSTEdge> primMST(const CSRGraph& graph, int startVertex, long long& total
     // Min-heap
     //
     // {edge weight, vertex, parent}
+    // PQNode is the nickname of tuple<long long, int, int> which can hold a long long value and 2 integers.
     using PQNode = tuple<long long, int, int>;
     priority_queue<PQNode, vector<PQNode>, greater<PQNode>> pq;
+
+    // visited array of bool type initialized with false to track each node of graph 
     vector<bool> visited(V, false);
     vector<MSTEdge> mst;
 

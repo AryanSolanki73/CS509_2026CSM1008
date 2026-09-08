@@ -8,7 +8,7 @@ using namespace std;
 // Greedy Vertex Coloring using Welsh-Powell ordering.
 // graph must be an unweighted, undirected CSR graph (each undirected edge
 // appears in both endpoints' adjacency lists -- this is the caller's
-// responsibility, as required by Section 5.1 of the assignment).
+// responsibility).
 //
 // Returns a vector of size graph.vertices where result[v] is the color
 // (0-indexed) assigned to vertex v.
