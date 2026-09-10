@@ -1,34 +1,50 @@
 #include "blockMatrix.h"
-#include<algorithm>
+#include <algorithm>
+
 using namespace std;
 
+// Performs matrix multiplication using blocking
 vector<vector<int>> blockMatrixMultiply(
     const vector<vector<int>>& A,
     const vector<vector<int>>& B,
     int blockSize)
 {
-    // n = r1 (rows of A)
+    // n = number of rows in A
     int n = A.size();
 
-    // m = c1 (columns in A)
+    // m = number of columns in A
+    // Also the number of rows in B
     int m = A[0].size();
 
-    // k = c2 (columns is B)
+    // k = number of columns in B
     int k = B[0].size();
 
-    // Vector of n * m to store final outpput 
-    // Multiplying the matrxi by dividing the matrix into Blocks
-    vector<vector<int>> C(n, vector<int>(m, 0));
-    for(int a=0; a<n; a+=blockSize){
-        for(int b=0; b<m; b+=blockSize){
-            for(int c=0; c<k; c+=blockSize){
-                int aEnd = min(a+blockSize, n);
-                int bEnd = min(b+blockSize, m);
-                int cEnd = min(c+blockSize, k);
+    // Result matrix C will be n x k
+    vector<vector<int>> C(n, vector<int>(k, 0));
 
-                for(int i=a; i<aEnd; i++){
-                    for(int j=b; j<bEnd; j++){
-                        for(int x=c; x<cEnd; x++){
+
+    // Divide the matrices into blocks
+    for (int a = 0; a < n; a += blockSize) {
+
+        for (int b = 0; b < k; b += blockSize) {
+
+            for (int c = 0; c < m; c += blockSize) {
+
+                // Calculate the ending index of each block
+                // min() handles blocks at the matrix boundary
+                int aEnd = min(a + blockSize, n);
+                int bEnd = min(b + blockSize, k);
+                int cEnd = min(c + blockSize, m);
+
+
+                // Multiply elements inside the current blocks
+                for (int i = a; i < aEnd; i++) {
+
+                    for (int j = b; j < bEnd; j++) {
+
+                        for (int x = c; x < cEnd; x++) {
+
+                            // Add A[i][x] * B[x][j] to C[i][j]
                             C[i][j] += A[i][x] * B[x][j];
                         }
                     }
@@ -36,5 +52,6 @@ vector<vector<int>> blockMatrixMultiply(
             }
         }
     }
+
     return C;
 }

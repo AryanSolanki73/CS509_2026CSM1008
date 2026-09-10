@@ -40,6 +40,7 @@ int main(int argc, char* argv[]){
     int r2, c2;
     fin>>r2>>c2;
 
+    // Taking second matrix input
     vector<vector<int>> B(r2, vector<int>(c2));
     for(int i=0; i<r2; i++){
         for(int j=0; j<c2; j++){
@@ -53,17 +54,13 @@ int main(int argc, char* argv[]){
     }
 
     auto start = high_resolution_clock::now();
-
     vector<vector<int>> C = multiplyMatrices(A, B);
-
     auto stop = high_resolution_clock::now();
 
     double timeTaken = duration<double, milli>(stop - start).count();
 
     fout<<"Execution Time : "<< timeTaken <<" ms\n";
-
     fout<<"Result Matrix : \n";
-
     for(auto &row : C){
         for(int val : row){
             fout << val << " ";

@@ -13,7 +13,9 @@ using namespace std;
 //      color index not already used by any already-colored neighbour.
 vector<int> greedyVertexColoring(const CSRGraph& graph) {
     int V = graph.vertices;
-    // colors vector with all zeros
+
+    // colors vector with all -1, means no color is assignes to any vertex yet.
+    // Max color we can use in  our graph
     vector<int> colors(V, -1);
 
     // no vertex no color used return -1
@@ -34,6 +36,7 @@ vector<int> greedyVertexColoring(const CSRGraph& graph) {
 
     // "Sort all vertices. Put the vertex with the higher degree first. If two vertices have the same degree, put the vertex with the smaller number first."
     // sort(a.begin(), a.end(), comparison function)
+    // [&] symbol for lambda function 
     sort(order.begin(), order.end(), [&](int a, int b) {
         if (degree[a] != degree[b]) return degree[a] > degree[b];
         return a < b; // stable tie-break for reproducibility
@@ -43,19 +46,24 @@ vector<int> greedyVertexColoring(const CSRGraph& graph) {
     // usedByNeighbour is reused per-vertex to avoid reallocating each time.
     vector<char> usedByNeighbour; // grows as needed
     for (int idx = 0; idx < V; idx++) {
+        // u will have vertex with max degree 
         int u = order[idx];
 
         // Determine which colors are already used by colored neighbours.
         usedByNeighbour.assign(1, 0); // will grow lazily below
         int maxSeen = -1;
+        
+        // To track neighbour of u (max degree vertex)
         for (int e = graph.row_ptr[u]; e < graph.row_ptr[u + 1]; e++) {
             int nb = graph.col_idx[e];
             int c = colors[nb];
             if (c >= 0) {
                 if (c > maxSeen) {
+                    // resize the vector and assigned 0 to olny newly added element
                     usedByNeighbour.resize(c + 1, 0);
                     maxSeen = c;
                 }
+                // max seen color is set to 1 (assigned already)
                 usedByNeighbour[c] = 1;
             }
         }
@@ -65,6 +73,8 @@ vector<int> greedyVertexColoring(const CSRGraph& graph) {
         while (chosen < (int)usedByNeighbour.size() && usedByNeighbour[chosen]) {
             chosen++;
         }
+
+        // smallest color not used till now is assigned to new neighbour
         colors[u] = chosen;
     }
 

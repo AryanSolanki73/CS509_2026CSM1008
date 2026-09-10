@@ -25,13 +25,24 @@ vector<MSTEdge> primMST(const CSRGraph& graph, int startVertex, long long& total
     // {edge weight, vertex, parent}
     // PQNode is the nickname of tuple<long long, int, int> which can hold a long long value and 2 integers.
     using PQNode = tuple<long long, int, int>;
+    
+    // This is min-heap of tuples or min-priority queue
+    /*priority_queue<what type? ,
+                     what container?, 
+                     what comparision?> */
+
+//  PQNode              → elements are tuples
+//  vector<PQNode>      → internally stored in a vector
+//  greater<PQNode>     → smallest element comes to the top
     priority_queue<PQNode, vector<PQNode>, greater<PQNode>> pq;
 
     // visited array of bool type initialized with false to track each node of graph 
     vector<bool> visited(V, false);
+    // Return it as output (vertex, vertex, weight)
     vector<MSTEdge> mst;
 
     // Start from startVertex
+    // parent of start vertex is none, so -1, wdge weight = 0
     pq.push({0, startVertex, -1});
     
     // Prim's algorithm
@@ -39,14 +50,16 @@ vector<MSTEdge> primMST(const CSRGraph& graph, int startVertex, long long& total
         auto [weight, u, parent] = pq.top();
         pq.pop();
 
-        // Vertex already included in MST
+        // Vertex already included in MST then continue;
         if (visited[u]) {
             continue;
         }
 
+        // Otherwise add the vertex in the visited array
         visited[u] = true;
 
         // First vertex has no parent
+        // Parent is -1 for the startvertex only
         if (parent != -1) {
             mst.push_back({parent, u, weight});
             totalWeight += weight;

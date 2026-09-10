@@ -26,12 +26,12 @@ void CSRGraph::buildCSR(const vector<vector<int>>& adjList){
 }
 
 // function to get total number of vertices in the graph 
-int CSRGraph::getVertices() const{
+int CSRGraph::getVertices(){
     return vertices;
 }
 
 // total number of edges in the graph
-int CSRGraph::getEdges() const{
+int CSRGraph::getEdges(){
     return edges;
 }
 
@@ -49,7 +49,7 @@ const vector<int>& CSRGraph::getWeight() const{
     return weight;
 }
 
-void CSRGraph::displayCSR() const{
+void CSRGraph::displayCSR(){
     cout<<"\nRow Pointer\n";
     for(int x : rowPtr){
         cout<<x<<" ";

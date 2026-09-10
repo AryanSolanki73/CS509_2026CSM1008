@@ -1,76 +1,130 @@
 #include "pageRank.h"
 #include <cmath>
+
 using namespace std;
 
-// Reference: https://web.stanford.edu/class/cs106m/meetings/03-pagerank
-// tolerance - How small does the change need to be before I consider the answer stable?"
-PageRankResult pageRank(const CSRGraph& graph, double damping, double tolerance, int maxIterations) {
+
+// Calculates PageRank for all vertices
+PageRankResult pageRank(
+    const CSRGraph& graph,
+    double damping,
+    double tolerance,
+    int maxIterations) {
+
     int V = graph.vertices;
     PageRankResult result;
 
+    // Handle an empty graph
     if (V == 0) {
         result.converged = true;
         return result;
     }
 
-    // Outdegree of every vertex, straight from CSR row_ptr (O(V)).
+    // Calculate outdegree of every vertex using CSR
     vector<int> outdegree(V);
+
     for (int v = 0; v < V; v++) {
         outdegree[v] = graph.row_ptr[v + 1] - graph.row_ptr[v];
     }
 
-    // All vertices initialized with rank 1/N.
+
+    // Initially, every vertex gets equal PageRank
+    // PR(v) = 1 / V
     vector<double> rank(V, 1.0 / V);
+
+    // Stores PageRank values for the next iteration
     vector<double> next(V, 0.0);
 
     int iter = 0;
     bool converged = false;
 
+
+    // Repeat PageRank calculation until convergence
+    // or maximum iterations are reached
     for (iter = 0; iter < maxIterations; iter++) {
-        // Base term (1 - d) / N for every vertex, plus an even share of
-        // dangling-vertex rank (outdegree 0 vertices distribute their
-        // rank evenly across ALL vertices).
+
+        // Calculate total rank of dangling vertices
+        // (vertices having no outgoing edges)
         double danglingSum = 0.0;
+
         for (int u = 0; u < V; u++) {
-            if (outdegree[u] == 0) danglingSum += rank[u];
+            if (outdegree[u] == 0)
+                danglingSum += rank[u];
         }
-        double base = (1.0 - damping) / V + damping * danglingSum / V;
 
-        for (int v = 0; v < V; v++) next[v] = base;
 
-        // Distribute rank along outgoing edges: for every edge u -> v,
-        // add PR(u) / outdegree(u) to next[v]. All vertices updated
-        // simultaneously using the PREVIOUS iteration's rank values.
+        // Base PageRank given to every vertex
+        // Also distributes dangling vertex rank equally
+        double base =
+            (1.0 - damping) / V
+            + damping * danglingSum / V;
+
+
+        // Start every vertex with the base value
+        for (int v = 0; v < V; v++) {
+            next[v] = base;
+        }
+
+
+        // Distribute PageRank through outgoing edges
         for (int u = 0; u < V; u++) {
-            if (outdegree[u] == 0) continue; // handled via danglingSum above
-            double share = damping * rank[u] / outdegree[u];
-            for (int e = graph.row_ptr[u]; e < graph.row_ptr[u + 1]; e++) {
+
+            // Dangling vertices were already handled above
+            if (outdegree[u] == 0)
+                continue;
+
+            // Rank contributed by u to each outgoing neighbour
+            double share =
+                damping * rank[u] / outdegree[u];
+
+
+            // Traverse u's neighbours using CSR
+            for (int e = graph.row_ptr[u];
+                 e < graph.row_ptr[u + 1];
+                 e++) {
+
                 int v = graph.col_idx[e];
+
+                // Add u's contribution to v
                 next[v] += share;
             }
         }
 
-        // Total change (sum of absolute differences) across all vertices.
+
+        // Calculate the total change in PageRank
         double totalChange = 0.0;
+
         for (int v = 0; v < V; v++) {
             totalChange += fabs(next[v] - rank[v]);
         }
 
+
+        // Make the new ranks the current ranks
         rank.swap(next);
 
+
+        // Stop if the change is small enough
         if (totalChange <= tolerance) {
             converged = true;
-            iter++; // count this iteration as completed
+
+            // Count this iteration as completed
+            iter++;
+
             break;
         }
     }
 
+
+    // If convergence was not reached, maximum iterations were used
     if (!converged) {
         iter = maxIterations;
     }
 
+
+    // Store final results
     result.ranks = rank;
     result.iterations = iter;
     result.converged = converged;
+
     return result;
 }

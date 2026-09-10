@@ -15,13 +15,18 @@ vector<vector<long long>> readMatrix(const string& filename){
     }
 
     int n;
+    // Taking the n as dimenssions of the matrix
     file >> n;
+    
+    // Matrix of n*n
     vector<vector<long long>> matrix(n, vector<long long>(n));
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
+            // Taking the input of matrix as string
             string value;
             file >> value;
             if (value == "INF") {
+                // INF is not a string, It is defined above
                 matrix[i][j] = INF;
             }
             else {
@@ -37,6 +42,7 @@ vector<vector<long long>> readMatrix(const string& filename){
 
 // Floyd-Warshall Algorithm
 // This algorithm is used to find the all pair shortest path
+// Take the input matrix as a input
 vector<vector<long long>> floydWarshall(vector<vector<long long>> matrix){
     int n = matrix.size();
     // We have to apply the algorithm by 0 to n-1 time, means n matrix will be created.

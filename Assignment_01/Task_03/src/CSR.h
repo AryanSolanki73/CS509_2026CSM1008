@@ -3,10 +3,9 @@
 #include<vector>
 using namespace std;
 
-// CSRGraph class (Template to convert adjacency list to CSR)
-class CSRGraph
+// CSRGraph (Template to convert adjacency list to CSR)
+struct CSRGraph
 {
-private:
     int vertices;
     int edges;
 
@@ -14,16 +13,13 @@ private:
     vector<int> colIndex;
     vector<int> weight;
 
-public:
     CSRGraph(int V);
     void buildCSR(const vector<vector<int>>& adjList);
-    int getVertices() const;
-    int getEdges() const;
+    int getVertices();
+    int getEdges();
     const vector<int>& getRowPtr() const;
     const vector<int>& getColIndex() const;
     const vector<int>& getWeight() const;
-
-    void displayCSR() const;
+    void displayCSR() ;
 };
-
 #endif

@@ -11,6 +11,7 @@ const long long INF = LLONG_MAX / 4;  // A very large number considered as INF
 
     // distance to all the vertices are intialize with INF
     vector<long long> distance(V, INF);
+    
     // currently no negative cycle
     negativeCycle = false;
 
